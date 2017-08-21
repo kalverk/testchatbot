@@ -12,15 +12,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-  res.send('Mina olen juturobot')
+  // res.send('Mina olen juturobot');
+  res.send(req.query['hub.challenge']);
 });
 
 app.get('/webhook/', function (req, res) {
-  if (req.query['hub.verify_token'] === 'webhook_token') {
-    res.send(req.query['hub.challenge'])
-  } else {
-    res.send('Error, wrong token')
-  }
+  res.send(req.query['hub.challenge']);
 });
 
 app.post('/webhook/', function (req, res) {
