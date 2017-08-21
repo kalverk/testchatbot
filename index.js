@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-  // res.send('Mina olen juturobot');
-  res.send(req.query['hub.challenge']);
+  res.send('Mina olen juturobot');
+  //res.send(req.query['hub.challenge']);
 });
 
 app.get('/webhook/', function (req, res) {
